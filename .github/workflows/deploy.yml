@@ -2,22 +2,24 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Install and Build
+      - name: Install dependencies and build
         run: |
           npm install
           npm run build
-          
+
       - name: Deploy to GitHub Pages
-        uses: ketbome/Recorte-Img-pag@latest
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages
-          folder: public
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
