@@ -10,7 +10,7 @@
 
   const cloudinary = new Cloudinary({
     cloud: {
-      cloudName: "ketbome",
+      cloudName: "deys67hew",
     },
     url: {
       secure: true,
@@ -29,7 +29,7 @@
       // aqui podemos añadir apiKey
       formData.append("upload_preset", "ml_default");
       formData.append("timestamp", Date.now() / 1000);
-      formData.append("api_key", 222962456332937);
+      formData.append("api_key", 459331158644539);
     });
 
     dropzone.on("success", (file, response) => {
